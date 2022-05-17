@@ -49,6 +49,7 @@
             };
         },
         mounted() {
+            this.setCreatedAt();
             setInterval(this.setCreatedAt, 1000 * 60);
         },
         methods: {
