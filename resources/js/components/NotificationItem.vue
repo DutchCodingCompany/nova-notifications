@@ -49,7 +49,7 @@
             };
         },
         mounted() {
-            setInterval(this.setCreatedAt, 1000);
+            setInterval(this.setCreatedAt, 1000 * 60);
         },
         methods: {
             setCreatedAt() {
