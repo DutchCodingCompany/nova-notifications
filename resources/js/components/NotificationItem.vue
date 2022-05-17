@@ -18,7 +18,7 @@
                     </p>
 
                     <p class="font-normal text-sm">
-                        {{ notification.data.created_at | fromNow }}
+                        {{ createdAt }}
                     </p>
                 </slot>
             </notification-link>
@@ -43,12 +43,18 @@
                 type: Object
             }
         },
-        filters: {
-            fromNow(date) {
-                return new moment(date).fromNow()
-            }
+        data() {
+            return {
+                createdAt: null,
+            };
+        },
+        mounted() {
+            setInterval(this.setCreatedAt, 1000);
         },
         methods: {
+            setCreatedAt() {
+                this.createdAt = new moment(this.notification.data.created_at).fromNow();
+            },
             markAsRead: function () {
                 axios
                     .patch('/nova-vendor/nova-notifications/' + this.notification.id)

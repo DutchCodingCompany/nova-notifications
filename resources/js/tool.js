@@ -1,5 +1,9 @@
+import NotificationLink from './components/NotificationLink';
+import NotificationItem from './components/NotificationItem';
+import NotificationsDropdown from './components/NotificationsDropdown';
+
 Nova.booting((Vue, router, store) => {
-    Vue.component('notification-link', require('./components/NotificationLink'))
-    Vue.component('notification-item', require('./components/NotificationItem'))
-    Vue.component('notifications-dropdown', require('./components/NotificationsDropdown'))
-})
+    Vue.component('notification-link', NotificationLink);
+    Vue.component('notification-item', NotificationItem);
+    Vue.component('notifications-dropdown', NotificationsDropdown);
+});
